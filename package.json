@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint \"client/**/*.{ts,vue}\" \"server/**/*.ts\"",
-    "test": "npm run test -w client && npm run test -w server",
+    "test": "vitest run",
     "prepare": "husky install"
   },
   "keywords": [],
@@ -25,7 +25,8 @@
     "globals": "^15.13.0",
     "husky": "^8.0.0",
     "prettier": "^3.4.2",
-    "typescript-eslint": "^8.18.0"
+    "typescript-eslint": "^8.18.0",
+    "vitest": "^2.1.8"
   },
   "dependencies": {
     "lint-staged": "^15.2.11",
