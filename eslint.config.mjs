@@ -2,6 +2,7 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginVue from "eslint-plugin-vue";
+import vueTsEslintConfig from "@vue/eslint-config-typescript";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -18,5 +19,25 @@ export default [
   {
     files: ["**/*.vue"],
     languageOptions: { parserOptions: { parser: tseslint.parser } },
+  },
+  {
+    name: "app/files-to-ignore",
+    ignores: ["**/dist/**", "**/dist-ssr/**", "**/coverage/**"],
+  },
+
+  ...pluginVue.configs["flat/recommended"],
+  ...vueTsEslintConfig(),
+
+  {
+    rules: {
+      "@typescript-eslint/no-unused-expressions": [
+        "error",
+        {
+          allowShortCircuit: true,
+          allowTernary: true,
+        },
+      ],
+      "vue/multi-word-component-names": "off",
+    },
   },
 ];
