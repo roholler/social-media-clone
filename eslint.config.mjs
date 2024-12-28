@@ -3,6 +3,7 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginVue from "eslint-plugin-vue";
 import vueTsEslintConfig from "@vue/eslint-config-typescript";
+import eslintConfigPrettier from "eslint-config-prettier";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -27,6 +28,7 @@ export default [
 
   ...pluginVue.configs["flat/recommended"],
   ...vueTsEslintConfig(),
+  eslintConfigPrettier,
 
   {
     rules: {
